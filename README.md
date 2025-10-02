@@ -1,4 +1,4 @@
-# Development Ofiicers System
+# Development Ofiicers Managment System
 
 A **full-stack web application** for managing employee records, including personal details, multiple contact numbers, addresses, school attachments, and other attachments. Built with **PHP**, **MySQL**, and **HTML/CSS**, this system allows adding, storing, and viewing employees with multi-value details.
 
