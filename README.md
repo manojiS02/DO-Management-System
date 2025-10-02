@@ -102,7 +102,7 @@ CREATE TABLE EmployeeAttachments (
     period VARCHAR(50),
     FOREIGN KEY (file_number) REFERENCES Employees(file_number) ON DELETE CASCADE
 );
-
+```
 
 ## Installation & Setup
 
@@ -113,6 +113,7 @@ CREATE TABLE EmployeeAttachments (
 ```bash
 cd path/to/employee_system
 php -S localhost:8000
+```
 
 4.Open your web browser and go to:
 http://localhost/employee_system/employee_form.html
