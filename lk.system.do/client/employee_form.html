@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Employee Registration Form</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    input, select { margin: 5px 0; padding: 5px; width: 300px; }
+    .multi-group { margin-bottom: 15px; }
+    button { margin-top: 10px; padding: 5px 15px; }
+  </style>
+  <script>
+    function addField(section, name, extra="") {
+      let div = document.createElement("div");
+      div.innerHTML = '<input type="text" name="'+name+'[]" placeholder="Enter '+name+'"> ' + extra;
+      document.getElementById(section).appendChild(div);
+    }
+  </script>
+</head>
+<body>
+<h2>Employee Registration Form</h2>
+<form method="post" action="../server/employee_submit.php">
+
+  <h3>Main Details</h3>
+<!--  <input type="text" name="serial_number" placeholder="Serial Number"><br>-->
+  <input type="text" name="file_number" placeholder="File Number"><br>
+  <input type="text" name="employee_name" placeholder="Employee Name" required><br>
+  <input type="text" name="nic" placeholder="NIC"><br>
+  <input type="date" name="date_of_birth"><br>
+  <select name="gender">
+    <option value="">--Select Gender--</option>
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+  </select><br>
+
+  <label>Date of Trainee Training Appointment:</label>
+  <input type="date" name="date_of_trainee_training_appointment"><br>
+  <label>Date of Release from Divisional Secretariat:</label>
+  <input type="date" name="date_of_release_from_divisional_secretariat"><br>
+  <label>Date of Appointment:</label>
+  <input type="date" name="date_of_appointment"><br>
+  <label>Date of Assuming Duties in Zone:</label>
+  <input type="date" name="date_of_assuming_duties_in_zone"><br>
+  <label>Date of Passing Efficiency Test:</label>
+  <input type="date" name="date_of_passing_efficiency_test"><br>
+  <label>Date of Tamil Release:</label>
+  <input type="date" name="date_of_tamil_release"><br>
+  <label>Date of Appointment Confirmed:</label>
+  <input type="date" name="date_of_appointment_confirmed"><br>
+
+  <h3>Addresses</h3>
+  <div id="addresses">
+    <input type="text" name="addresses[]" placeholder="Enter address">
+  </div>
+  <button type="button" onclick="addField('addresses','addresses')">+ Add Address</button><br>
+
+  <h3>Telephone Numbers</h3>
+  <div id="phones">
+    <input type="text" name="phones[]" placeholder="Enter phone number">
+  </div>
+  <button type="button" onclick="addField('phones','phones')">+ Add Phone</button><br>
+
+  <h3>WhatsApp Numbers</h3>
+  <div id="whatsapps">
+    <input type="text" name="whatsapps[]" placeholder="Enter WhatsApp number">
+  </div>
+  <button type="button" onclick="addField('whatsapps','whatsapps')">+ Add WhatsApp</button><br>
+
+  <h3>School Attachments</h3>
+  <div id="schools">
+    <input type="text" name="school_name[]" placeholder="School Name">
+    <input type="date" name="school_start[]"> to
+    <input type="date" name="school_end[]"><br>
+  </div>
+  <button type="button" onclick="addField('schools','school_name','<input type=date name=school_start[]> to <input type=date name=school_end[]>')">+ Add School</button><br>
+
+  <h3>Other Attachments</h3>
+  <div id="attachments">
+    <input type="date" name="attach_date[]">
+    <input type="text" name="attach_period[]" placeholder="Period"><br>
+  </div>
+  <button type="button" onclick="addField('attachments','attach_date','<input type=text name=attach_period[] placeholder=Period>')">+ Add Attachment</button><br>
+
+  <button type="submit">Save Employee</button>
+</form>
+</body>
+</html>
